@@ -35,7 +35,7 @@ def best_fit_slope_and_intercept(xs,ys):
 
     return m, b
 
-#This fucntion handles the r-squared value.
+#This function handles the r-squared value.
 def coefficient_of_determination(ys_orig,ys_line):
     y_mean_line = [mean(ys_orig) for y in ys_orig]
 
