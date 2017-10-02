@@ -5,7 +5,11 @@ import matplotlib.pyplot as plt
 from matplotlib import style
 style.use('ggplot')
 
-
+# Creates the dataset that provides the scatterplot
+# the correlation value in the function call is automatically
+# set to 'False', but the value of pos or neg can be given for
+# a positive or negative trend in values. False gives us the
+# horrifying almost equal distribution.
 def create_dataset(hm,variance,step=2,correlation=False):
     val = 1
     ys = []
@@ -21,6 +25,8 @@ def create_dataset(hm,variance,step=2,correlation=False):
     
     return np.array(xs, dtype=np.float64),np.array(ys,dtype=np.float64)
 
+# This function is designed to handle the first two equations
+# that we discussed in the tutorial for handling y=mx+b
 def best_fit_slope_and_intercept(xs,ys):
     m = (((mean(xs)*mean(ys)) - mean(xs*ys)) /
          ((mean(xs)*mean(xs)) - mean(xs*xs)))
@@ -29,7 +35,7 @@ def best_fit_slope_and_intercept(xs,ys):
 
     return m, b
 
-
+#This fucntion handles the r-squared value.
 def coefficient_of_determination(ys_orig,ys_line):
     y_mean_line = [mean(ys_orig) for y in ys_orig]
 
